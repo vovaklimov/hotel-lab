@@ -7,6 +7,7 @@
         <groupId>com.github.vovaklimov</groupId>
         <version>0.1.0</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <artifactId>schema</artifactId>
     <packaging>jar</packaging>
@@ -17,21 +18,40 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-xjc-plugin</artifactId>
-                <version>4.0.0</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>generate-sources</id>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
                         <phase>generate-sources</phase>
-                        <configuration>
-
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <target>3.0</target>
+                    <clearOutputDir>true</clearOutputDir>
+                    <outputDirectory>${project.basedir}/target/generated-sources/java</outputDirectory>
+                    <sources>${project.basedir}/src/main/resources</sources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

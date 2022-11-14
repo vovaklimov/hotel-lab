@@ -6,6 +6,8 @@
         elementFormDefault="qualified"
         attributeFormDefault="qualified">
 
+    <xs:import namespace="http://vovaklimov.github.com/hotel/common" schemaLocation="common.xsd" />
+
     <xs:element name="room">
         <xs:complexType>
             <xs:all>
