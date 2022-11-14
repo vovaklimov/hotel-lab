@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://vovaklimov.github.com/hotel/common"
+           targetNamespace="http://vovaklimov.github.com/hotel/common"
+           elementFormDefault="qualified">
+
+    <xs:attribute name="currency">
+        <xs:simpleType>
+            <xs:restriction base="xs:normalizedString">
+                <xs:enumeration value="UAH"/>
+                <xs:enumeration value="USD"/>
+                <xs:enumeration value="EUR"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <xs:simpleType name="positiveDecimal">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="entity-id">
+        <xs:restriction base="xs:unsignedLong">
+            <xs:minExclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="price">
+        <xs:simpleContent>
+            <xs:extension base="common:positiveDecimal">
+                <xs:attribute ref="common:currency" default="UAH"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>
