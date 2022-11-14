@@ -19,7 +19,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="entity-id">
+    <xs:simpleType name="entityId">
         <xs:restriction base="xs:unsignedLong">
             <xs:minExclusive value="0"/>
         </xs:restriction>
@@ -33,4 +33,32 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:simpleType name="emailAddress">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="address">
+        <xs:sequence>
+            <xs:element name="postalCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:pattern value="\d{5}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="street" type="xs:normalizedString"/>
+            <xs:element name="city" type="xs:normalizedString"/>
+            <xs:element name="region" type="xs:normalizedString"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="timeRange">
+        <xs:sequence>
+            <xs:element name="from" type="xs:dateTime"/>
+            <xs:element name="to" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

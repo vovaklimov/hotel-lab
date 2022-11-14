@@ -6,11 +6,14 @@
         elementFormDefault="qualified"
         attributeFormDefault="qualified">
 
-    <xs:import namespace="http://vovaklimov.github.com/hotel/common" schemaLocation="common.xsd" />
+    <xs:import namespace="http://vovaklimov.github.com/hotel/common" schemaLocation="common.xsd"/>
     <xs:element name="booking">
         <xs:complexType>
             <xs:all>
-                <xs:element name="id" type="common:entity-id"/>
+                <xs:element name="id" type="common:entityId"/>
+                <xs:element name="clientId" type="common:entityId"/>
+                <xs:element name="roomId" type="common:entityId"/>
+                <xs:element name="timeRange" type="common:timeRange"/>
             </xs:all>
         </xs:complexType>
     </xs:element>

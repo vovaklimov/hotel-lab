@@ -2,15 +2,44 @@
 <xs:schema
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:common="http://vovaklimov.github.com/hotel/common"
+        xmlns:client="http://vovaklimov.github.com/hotel/client"
         targetNamespace="http://vovaklimov.github.com/hotel/client"
         elementFormDefault="qualified"
         attributeFormDefault="qualified">
-    <xs:import namespace="http://vovaklimov.github.com/hotel/common" schemaLocation="common.xsd" />
+
+    <xs:import namespace="http://vovaklimov.github.com/hotel/common" schemaLocation="common.xsd"/>
+
+    <xs:complexType name="contact">
+        <xs:choice>
+            <xs:element name="phone" type="xs:token"/>
+            <xs:element name="email" type="common:emailAddress"/>
+        </xs:choice>
+    </xs:complexType>
+
     <xs:element name="client">
         <xs:complexType>
             <xs:all>
-                <xs:element name="id" type="common:entity-id"/>
+                <xs:element name="id" type="common:entityId"/>
+                <xs:element name="name">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:normalizedString">
+                            <xs:minLength value="3"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="address" minOccurs="0" type="common:address" nillable="true"/>
+                <xs:element name="contacts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="contact" type="client:contact" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:all>
         </xs:complexType>
+        <xs:unique name="uniqueContactInUserContacts">
+            <xs:selector xpath="contacts"/>
+            <xs:field xpath="@id"/>
+        </xs:unique>
     </xs:element>
 </xs:schema>

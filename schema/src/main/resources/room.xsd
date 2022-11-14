@@ -6,12 +6,12 @@
         elementFormDefault="qualified"
         attributeFormDefault="qualified">
 
-    <xs:import namespace="http://vovaklimov.github.com/hotel/common" schemaLocation="common.xsd" />
+    <xs:import namespace="http://vovaklimov.github.com/hotel/common" schemaLocation="common.xsd"/>
 
     <xs:element name="room">
         <xs:complexType>
             <xs:all>
-                <xs:element name="id" type="common:entity-id"/>
+                <xs:element name="id" type="common:entityId"/>
                 <xs:element name="price" type="common:price"/>
                 <xs:element name="number">
                     <xs:simpleType>
