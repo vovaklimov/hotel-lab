@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hotel
+        xmlns="http://vovaklimov.github.com/hotel/hotel"
+        xmlns:common="http://vovaklimov.github.com/hotel/common"
+        xmlns:booking="http://vovaklimov.github.com/hotel/booking"
+        xmlns:client="http://vovaklimov.github.com/hotel/client"
+        xmlns:room="http://vovaklimov.github.com/hotel/room"
+>
+    <rooms>
+
+        <room:room>
+            <room:id>1</room:id>
+            <room:description>Light beautiful room with two windows and awesome look</room:description>
+            <room:number>123</room:number>
+            <room:price common:currency="UAH">2500</room:price>
+            <room:sleeps>2</room:sleeps>
+            <room:square>20</room:square>
+        </room:room>
+    </rooms>
+
+    <clients>
+        <client:client>
+            <client:id>1</client:id>
+            <client:name>John Doe</client:name>
+            <client:address>
+                <common:postalCode>38000</common:postalCode>
+                <common:street>Shevchenko</common:street>
+                <common:city>Poltava</common:city>
+                <common:region>Poltava</common:region>
+            </client:address>
+            <client:contacts>
+                <client:contact>
+                    <client:phone>+380950654346</client:phone>
+                </client:contact>
+                <client:contact>
+                    <client:email>john.doe@mail.com</client:email>
+                </client:contact>
+            </client:contacts>
+        </client:client>
+    </clients>
+
+    <bookings>
+        <booking:booking>
+            <booking:id>1</booking:id>
+            <booking:clientId>1</booking:clientId>
+            <booking:roomId>1</booking:roomId>
+            <booking:timeRange>
+                <common:from>2022-12-15T22:52:47.800Z</common:from>
+                <common:to>2022-12-16T22:52:47.800Z</common:to>
+            </booking:timeRange>
+        </booking:booking>
+    </bookings>
+</hotel>

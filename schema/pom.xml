@@ -51,6 +51,13 @@
                     <clearOutputDir>true</clearOutputDir>
                     <outputDirectory>${project.basedir}/target/generated-sources/java</outputDirectory>
                     <sources>${project.basedir}/src/main/resources</sources>
+                    <xjcSourceExcludeFilters>
+                    <filter implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">
+                        <patterns>
+                            <pattern>\.xml</pattern>
+                        </patterns>
+                    </filter>
+                </xjcSourceExcludeFilters>
                 </configuration>
             </plugin>
         </plugins>

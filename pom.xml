@@ -10,10 +10,16 @@
     <version>0.1.0</version>
     <modules>
         <module>schema</module>
+        <module>parser</module>
     </modules>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <properties>

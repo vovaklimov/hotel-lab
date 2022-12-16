@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:booking="http://vovaklimov.github.com/hotel/booking"
+        xmlns:room="http://vovaklimov.github.com/hotel/room"
+        xmlns:client="http://vovaklimov.github.com/hotel/client"
+        targetNamespace="http://vovaklimov.github.com/hotel/hotel"
+        elementFormDefault="qualified"
+        attributeFormDefault="qualified">
+
+    <xs:import namespace="http://vovaklimov.github.com/hotel/room" schemaLocation="room.xsd"/>
+    <xs:import namespace="http://vovaklimov.github.com/hotel/client" schemaLocation="client.xsd"/>
+    <xs:import namespace="http://vovaklimov.github.com/hotel/booking" schemaLocation="booking.xsd"/>
+
+    <xs:element name="hotel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="rooms">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="room:room" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="clients">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="client:client" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="bookings">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="booking:booking" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
