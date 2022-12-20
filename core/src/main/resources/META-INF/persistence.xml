@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+             version="3.1">
+
+    <persistence-unit name="default">
+        <class>com.github.vovaklimov.hotel.core.entities.Client</class>
+        <class>com.github.vovaklimov.hotel.core.entities.Booking</class>
+        <class>com.github.vovaklimov.hotel.core.entities.Room</class>
+        <class>com.github.vovaklimov.hotel.core.values.Contact</class>
+        <properties>
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="jakarta.persistence.jdbc.user" value="user"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:default"/>
+            <property name="hibernate.connection.pool_size" value="1"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hbm2ddl.auto" value="create-drop"/>
+        </properties>
+    </persistence-unit>
+</persistence>

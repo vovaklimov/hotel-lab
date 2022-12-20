@@ -11,6 +11,10 @@
     <modules>
         <module>schema</module>
         <module>parser</module>
+        <module>hotel-server-jaxws</module>
+        <module>hotel-client-jaxws</module>
+        <module>core</module>
+        <module>hotel-server-jaxrs</module>
     </modules>
 
     <dependencies>
@@ -19,6 +23,11 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.9.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
         </dependency>
     </dependencies>
 
